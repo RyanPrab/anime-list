@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CardWrapper = styled.li.attrs(() => ({
-  className: `flex flex-col space-y-4 items-center rounded-md border-2 border-white py-2`
+  className: `flex flex-col space-y-4 items-center rounded-md border-2 border-white p-2`
 }))``;
 
 const ImageWrapper = styled.div.attrs(() => ({
@@ -18,8 +18,8 @@ export default function AnimeCard(props) {
   const { anime } = props;
 
   return (
-    // <Link href={`anime/${anime?.entry?.mal_id}`}>
-      <CardWrapper role="listitem">
+    <Link href={`anime/${anime?.entry?.mal_id}`} passHref={true} role="listitem">
+      <CardWrapper>
         <ImageWrapper>
           <Image
             className="rounded-md"
@@ -33,6 +33,6 @@ export default function AnimeCard(props) {
           {anime?.entry?.title}
         </AnimeTitle>
       </CardWrapper>
-    // </Link>
+    </Link>
   )
 }
