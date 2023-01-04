@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { DefaultLayout as Layout } from '../components/Layout'
 import { withAnimeRecommendations } from '../utils';
+import AnimeList from '../components/AnimeList';
 
 function Home(props) {
   const { animeRecomendations } = props;
   const { data: animeData, error: animeError } = animeRecomendations;
-  console.log(animeData);
 
   return (
     <Layout>
@@ -16,8 +16,8 @@ function Home(props) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <div className="flex flex-col items-center flex-1 flex-shrink-0 space-y-10">
-          Anime List
+        <div className="flex flex-col items-center flex-1 flex-shrink-0 space-y-10 container mx-auto py-6">
+          <AnimeList animes={animeData}/>
         </div>
       </div>
     </Layout>

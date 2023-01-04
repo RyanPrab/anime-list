@@ -15,7 +15,7 @@ const PageContainer = styled.div.attrs(() => ({
 
 export default function DefaultLayout(props) {
   const containerRef = useRef(null);
-  const headerHeight = containerRef?.current?.clientHeight || 90;
+  const headerHeight = containerRef?.current?.clientHeight || 49;
 
   return (
     <>
