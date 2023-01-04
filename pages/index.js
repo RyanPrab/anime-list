@@ -1,7 +1,12 @@
 import Head from 'next/head';
 import { DefaultLayout as Layout } from '../components/Layout'
+import { withAnimeRecommendations } from '../utils';
 
-export default function Home(props) {
+function Home(props) {
+  const { animeRecomendations } = props;
+  const { data: animeData, error: animeError } = animeRecomendations;
+  console.log(animeData);
+
   return (
     <Layout>
       <div>
@@ -18,3 +23,5 @@ export default function Home(props) {
     </Layout>
   )
 }
+
+export default withAnimeRecommendations(Home);
