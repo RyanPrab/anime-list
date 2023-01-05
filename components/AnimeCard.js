@@ -26,7 +26,6 @@ export default function AnimeCard(props) {
             src={anime?.entry?.images?.webp?.image_url}
             alt={anime?.entry?.title}
             fill
-            blur
           />
         </ImageWrapper>
         <AnimeTitle>
