@@ -18,9 +18,9 @@ export default function AnimeCard(props) {
   const { anime } = props;
 
   return (
-    <Link href={`anime/${anime?.entry?.mal_id}`} passHref={true} role="listitem">
+    <Link href={`anime/${anime?.entry?.mal_id}`} passHref={true} data-testid="anime-link">
       <CardWrapper>
-        <ImageWrapper>
+        <ImageWrapper data-testid="anime-image">
           <Image
             className="rounded-md"
             src={anime?.entry?.images?.webp?.image_url}
@@ -28,7 +28,7 @@ export default function AnimeCard(props) {
             fill
           />
         </ImageWrapper>
-        <AnimeTitle>
+        <AnimeTitle data-testid="anime-title">
           {anime?.entry?.title}
         </AnimeTitle>
       </CardWrapper>
