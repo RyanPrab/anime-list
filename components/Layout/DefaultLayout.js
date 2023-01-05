@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import Header from "../Header";
 import styled from "styled-components";
 
@@ -14,8 +13,6 @@ const PageContainer = styled.div.attrs(() => ({
 }))``;
 
 export default function DefaultLayout(props) {
-  const containerRef = useRef(null);
-  const headerHeight = containerRef?.current?.clientHeight || 25;
 
   return (
     <>
