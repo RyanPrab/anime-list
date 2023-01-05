@@ -3,6 +3,10 @@ import AnimeCard from "./AnimeCard";
 import ReactPaginate from 'react-paginate';
 import { useState, useEffect } from "react";
 
+const Wrapper = styled.div.attrs(() => ({
+  className: `flex flex-col space-y-4 items-center`
+}))``;
+
 const ListWrapper = styled.ul.attrs(() => ({
   className: `grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-start`
 }))``;
@@ -60,7 +64,7 @@ export default function AnimeList(props) {
   }
 
   return (
-    <>
+    <Wrapper data-testid="anime-list-content">
       <InputContainer>
         <SearchInput
           placeholder="Find Anime"
@@ -84,6 +88,7 @@ export default function AnimeList(props) {
         }
       </ListWrapper>
       <ReactPaginate
+        data-testid='pagination'
         className="flex flex-row space-x-2 w-full text-white font-medium justify-center"
         breakLabel="..."
         nextLabel=">"
@@ -93,6 +98,6 @@ export default function AnimeList(props) {
         previousLabel="<"
         renderOnZeroPageCount={null}
       />
-    </>
+    </Wrapper>
   )
 }
