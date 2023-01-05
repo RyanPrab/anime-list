@@ -23,12 +23,13 @@ export default function AnimeList(props) {
   const [query, setQuery] = useState("");
   const [keyword, setKeyword] = useState("");
   const [currentItems, setCurrentItems] = useState([]);
-  const [pageCount, setPageCount] = useState(Math.ceil(animes?.data.length / itemsPerPage));
+  const [pageCount, setPageCount] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
 
   useEffect(() => {
     setCurrentItems(animes?.data.slice(itemOffset, endOffset));
-  }, [animes, itemOffset, endOffset]);
+    setPageCount(Math.ceil(animes?.data.length / itemsPerPage))
+  }, [animes, itemOffset, endOffset, itemsPerPage]);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % animes?.data.length;
@@ -49,7 +50,7 @@ export default function AnimeList(props) {
       setCurrentItems(animes?.data.filter(anime => anime?.entry?.title.toLowerCase().includes(keyword.toLowerCase())));
       setPageCount(Math.ceil(currentItems.length / itemsPerPage));
     } else {
-      setCurrentItems(animes?.data);
+      setCurrentItems(animes?.data.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(animes?.data.length / itemsPerPage))
     }
   }, [keyword]);
