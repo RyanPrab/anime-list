@@ -16,7 +16,10 @@ export default function AnimeDetailPage(props) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <div className="flex flex-col items-center flex-1 flex-shrink-0 space-y-10 container mx-auto py-6 mt-4">
+        <div
+          data-testid="container"
+          className="flex flex-col items-center flex-1 flex-shrink-0 space-y-10 container mx-auto py-6 mt-4"
+        >
           <AnimeDetail anime={anime.data} />
         </div>
       </div>

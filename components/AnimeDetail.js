@@ -61,6 +61,7 @@ export default function AnimeDetail(props) {
   return (
     <>
       <Link
+        data-testid="home-link"
         href='/'
         passHref={true}
         className="flex w-full items-center text-white"
@@ -70,21 +71,20 @@ export default function AnimeDetail(props) {
       </Link>
       <Section>
         <div className="flex justify-center w-full lg:w-1/5">
-          <ImageWrapper>
+          <ImageWrapper data-testid="anime-image">
             <Image
               src={anime.images.webp.image_url}
               alt={anime.title}
               fill
-              blur
             />
           </ImageWrapper>
         </div>
         <AnimeInfoWrapper>
-          <AnimeTitle>
+          <AnimeTitle data-testid="anime-title">
             {anime.title}
           </AnimeTitle>
           <Divider/>
-          <ScoreSection>
+          <ScoreSection data-testid="anime-score">
             <ScoreWrapper>
               <ScoreTitle>
                 Score
@@ -121,9 +121,10 @@ export default function AnimeDetail(props) {
           <SectionTitle>
             Synopsis
           </SectionTitle>
-          <SectionDescription>
+          <SectionDescription data-testid="anime-synopsis">
             {showMoreSynopsis ? anime.synopsis : `${anime.synopsis.substring(0,300)}...`}
             <ButtonShow
+              data-testid="button-synopsis"
               onClick={() => {
                 setShowMoreSynopsis(!showMoreSynopsis)
               }}
@@ -135,9 +136,10 @@ export default function AnimeDetail(props) {
           <SectionTitle>
             Background
           </SectionTitle>
-          <SectionDescription>
+          <SectionDescription data-testid="anime-background">
           {showMoreBackground ? anime.background : `${anime.background.substring(0,300)}...`}
             <ButtonShow
+              data-testid="button-background"
               onClick={() => {
                 setShowMoreBackground(!showMoreBackground)
               }}
