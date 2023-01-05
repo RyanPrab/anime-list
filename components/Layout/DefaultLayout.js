@@ -10,19 +10,19 @@ const FixedContainer = styled.div.attrs(() => ({
 `;
 
 const PageContainer = styled.div.attrs(() => ({
-  className: `bg-blue-500`
+  className: `bg-blue-500 min-h-screen`
 }))``;
 
 export default function DefaultLayout(props) {
   const containerRef = useRef(null);
-  const headerHeight = containerRef?.current?.clientHeight || 49;
+  const headerHeight = containerRef?.current?.clientHeight || 25;
 
   return (
     <>
       <FixedContainer>
         <Header/>
       </FixedContainer>
-      <PageContainer style={{ paddingTop: `${headerHeight}px`}}>
+      <PageContainer style={{ paddingTop: `26px`}}>
         {props.children}
       </PageContainer>
     </>
