@@ -58,6 +58,9 @@ export default function AnimeDetail(props) {
   const [showMoreSynopsis, setShowMoreSynopsis] = useState(false);
   const [showMoreBackground, setShowMoreBackground] = useState(false);
 
+  const animeSynopsis = anime.synopsis || "";
+  const animeBackground = anime.background || "";
+
   return (
     <>
       <Link
@@ -122,7 +125,7 @@ export default function AnimeDetail(props) {
             Synopsis
           </SectionTitle>
           <SectionDescription data-testid="anime-synopsis">
-            {showMoreSynopsis ? anime.synopsis : `${anime.synopsis.substring(0,300)}...`}
+            {showMoreSynopsis ? animeSynopsis : `${animeSynopsis.substring(0,300)}...`}
             <ButtonShow
               data-testid="button-synopsis"
               onClick={() => {
@@ -137,7 +140,7 @@ export default function AnimeDetail(props) {
             Background
           </SectionTitle>
           <SectionDescription data-testid="anime-background">
-          {showMoreBackground ? anime.background : `${anime.background.substring(0,300)}...`}
+          {showMoreBackground ? animeBackground : `${animeBackground.substring(0,300)}...`}
             <ButtonShow
               data-testid="button-background"
               onClick={() => {
